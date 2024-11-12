@@ -11,12 +11,12 @@ setInterval(() => {
 	let seconds= time.getSeconds();  //0-59
 	
 	//in deg: 0-359
-	let secondsDeg= (seconds / 60) * 360 + 90;
-	let minutesDeg= (minutes / 60) * 360 + 90;
-	let hoursDeg= ((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30;
+	let secondsDeg= Math.floor((seconds / 60) * 360 + 90);
+	let minutesDeg= Math.floor((minutes / 60) * 360 + 90);
+	let hoursDeg= Math.floor(((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30);
 	console.log(hoursDeg, minutesDeg, secondsDeg);
 
-	if(seconds===59 || seconds===0) {
+	if(seconds===0) {
 		hands.forEach(hand => {
 			hand.style.transition= "none";
 		})

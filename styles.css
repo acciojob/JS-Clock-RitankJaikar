@@ -1,1 +1,15 @@
 /* Your CSS Code here. */
+.second-hand {
+	background-color: red !important;
+}
+
+.min-hand {
+	background-color: green !important;
+}
+
+.hour-hand {
+	background-color: blue !important;
+}
+
+
+

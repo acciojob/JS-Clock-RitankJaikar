@@ -4,7 +4,7 @@ let minHand= document.querySelector(".min-hand");
 let secondHand= document.querySelector(".second-hand");
 let hands= document.querySelectorAll(".hand");
 
-setInterval(() => {
+function setPosition() {
 	let time= new Date();
 	let hours= time.getHours();  //0-23
 	let minutes= time.getMinutes();  //0-59
@@ -31,8 +31,13 @@ setInterval(() => {
 	hourHand.style.transform= `rotate(${hoursDeg}deg)`;
 	minHand.style.transform= `rotate(${minutesDeg}deg)`;
 	secondHand.style.transform= `rotate(${secondsDeg}deg)`;
-	
-}, 0);
+}
+
+setPosition();
+
+setInterval(() => {
+	setPosition();
+}, 1000);
 
 
 

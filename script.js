@@ -32,7 +32,7 @@ setInterval(() => {
 	minHand.style.transform= `rotate(${minutesDeg}deg)`;
 	secondHand.style.transform= `rotate(${secondsDeg}deg)`;
 	
-}, 1000);
+}, 0);
 
 
 

@@ -2,6 +2,7 @@
 let hourHand= document.querySelector(".hour-hand");
 let minHand= document.querySelector(".min-hand");
 let secondHand= document.querySelector(".second-hand");
+let hands= document.querySelectorAll(".hand");
 
 setInterval(() => {
 	let time= new Date();
@@ -10,10 +11,22 @@ setInterval(() => {
 	let seconds= time.getSeconds();  //0-59
 	
 	//in deg: 0-359
-	let secondsDeg= Math.floor(((time.getSeconds())/60)*360) + 90;
-	let minutesDeg= Math.floor(((time.getMinutes())/60)*360) + 90;
-	let hoursDeg= Math.floor(((time.getHours())/24)*360) + 90 + Math.floor(minutesDeg/60);
+	let secondsDeg= (seconds / 60) * 360 + 90;
+	let minutesDeg= (minutes / 60) * 360 + 90;
+	let hoursDeg= ((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30;
 	console.log(hoursDeg, minutesDeg, secondsDeg);
+
+	if(seconds===59 || seconds===0) {
+		hands.forEach(hand => {
+			hand.style.transition= "none";
+		})
+	}
+	else {
+		hands.forEach(hand => {
+			hand.style.transition= "all 0.05s";
+			hand.style.transitionTimingFunction= "cubic-bezier(0.1, 2.7, 0.58, 1)";
+		})
+	}
 
 	hourHand.style.transform= `rotate(${hoursDeg}deg)`;
 	minHand.style.transform= `rotate(${minutesDeg}deg)`;

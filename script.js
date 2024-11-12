@@ -11,9 +11,9 @@ function setPosition() {
 	let seconds= time.getSeconds();  //0-59
 	
 	//in deg: 0-359
-	let secondsDeg= Math.floor((seconds / 60) * 360 + 90);
-	let minutesDeg= Math.floor((minutes / 60) * 360 + 90);
-	let hoursDeg= Math.floor(((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30);
+	let secondsDeg= Math.floor((seconds / 60) * 360 + 90).toFixed(5);
+	let minutesDeg= Math.floor((minutes / 60) * 360 + 90).toFixed(5);
+	let hoursDeg= Math.floor(((hours % 12) / 12) * 360 + 90 + (minutes / 60) * 30).toFixed(5);
 	console.log(hoursDeg, minutesDeg, secondsDeg);
 
 	if(seconds===0) {
